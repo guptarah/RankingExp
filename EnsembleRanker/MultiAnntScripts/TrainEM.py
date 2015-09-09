@@ -16,8 +16,8 @@ def InitializeW(D):
    return numpy.ones((D,1)) 
 
 def InitializeA():
-   A[0] = 0 # probability that he flipped
-   A[0] = 1 # probability he did not flip
+   A = [0 1]# [probability that he flipped
+   # probability he did not flip]
    return A
 
 def SigmoidProb(ext_diff_feats,w):
