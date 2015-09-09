@@ -93,4 +93,4 @@ def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
       if iter_counter > max_iter:
          convergence_flag = 0
 
-   print 'converged'        
+   print 'Finished training'        
