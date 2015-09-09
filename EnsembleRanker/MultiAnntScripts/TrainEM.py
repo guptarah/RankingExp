@@ -91,4 +91,6 @@ def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
          A[i] = ComputeA(k,cur_annt_labels) 
       
       if iter_counter > max_iter:
-         convergence_flag = 0 
+         convergence_flag = 0
+
+   print 'converged'        
