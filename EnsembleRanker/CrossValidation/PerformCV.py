@@ -74,33 +74,34 @@ def PerformCV(qid_file,diff_feat_dir,feat_file,labels_file,batch_size=5):
          
          print 'Model Trained.'
          print 'Results:'
-         print 'Iter Test set results:'
-         print 'Kendall Tau:', stats.kendalltau(test_scores,test_labels)[0]
-         print 'Spearman correlation:', stats.spearmanr(test_scores,test_labels)[0]
-         print 'Pearson correlation:', numpy.corrcoef(test_scores.T,test_labels.T)[0,1]
+         print 'TEST: Kendall Tau: %f, Spearman correlation: %f, Pearson correlation: %f'\
+         %(stats.kendalltau(test_scores,test_labels)[0], stats.spearmanr(test_scores,test_labels)[0], \
+         numpy.corrcoef(test_scores.T,test_labels.T)[0,1])
 
-         print 'Iter Dev set results:'
-         print 'Kendall Tau:', stats.kendalltau(dev_scores[:,0],dev_labels[:,0])[0]
-         print 'Spearman correlation:', stats.spearmanr(dev_scores,dev_labels)[0]
-         print 'Pearson correlation:', numpy.corrcoef(dev_scores.T,dev_labels.T)[0,1]
+         print 'DEV: Kendall Tau: %f, Spearman correlation: %f, Pearson correlation: %f'\
+         %(stats.kendalltau(dev_scores[:,0],dev_labels[:,0])[0], \
+         stats.spearmanr(dev_scores,dev_labels)[0],\
+         numpy.corrcoef(dev_scores.T,dev_labels.T)[0,1])
          
+         print '---------------------'
+         print ''
 
-      all_test_scores = numpy.vstack((all_test_scores,test_scores))
-      all_test_labels = numpy.vstack((all_test_labels,test_labels))
-      all_dev_scores = numpy.vstack((all_dev_scores,dev_scores))
-      all_dev_labels = numpy.vstack((all_dev_labels,dev_labels))
-
-      print 'Test set results:'
-      print 'Kendall Tau:', stats.kendalltau(all_test_scores[:,0],all_test_labels[:,0])[0]
-      print 'Spearman correlation:', stats.spearmanr(all_test_scores,all_test_labels)[0]
-      print 'Pearson correlation:', numpy.corrcoef(all_test_scores.T,all_test_labels.T)[0,1]
-
-      print 'Dev set results:'
-      print 'Kendall Tau:', stats.kendalltau(all_dev_scores[:,0],all_dev_labels[:,0])[0]
-      print 'Spearman correlation:', stats.spearmanr(all_dev_scores,all_dev_labels)[0]
-      print 'Pearson correlation:', numpy.corrcoef(all_dev_scores.T,all_dev_labels.T)[0,1]
-      print '-------------------'
-      print ''
+#      all_test_scores = numpy.vstack((all_test_scores,test_scores))
+#      all_test_labels = numpy.vstack((all_test_labels,test_labels))
+#      all_dev_scores = numpy.vstack((all_dev_scores,dev_scores))
+#      all_dev_labels = numpy.vstack((all_dev_labels,dev_labels))
+#
+#      print 'Test set results:'
+#      print 'Kendall Tau:', stats.kendalltau(all_test_scores[:,0],all_test_labels[:,0])[0]
+#      print 'Spearman correlation:', stats.spearmanr(all_test_scores,all_test_labels)[0]
+#      print 'Pearson correlation:', numpy.corrcoef(all_test_scores.T,all_test_labels.T)[0,1]
+#
+#      print 'Dev set results:'
+#      print 'Kendall Tau:', stats.kendalltau(all_dev_scores[:,0],all_dev_labels[:,0])[0]
+#      print 'Spearman correlation:', stats.spearmanr(all_dev_scores,all_dev_labels)[0]
+#      print 'Pearson correlation:', numpy.corrcoef(all_dev_scores.T,all_dev_labels.T)[0,1]
+#      print '-------------------'
+#      print ''
 
 if __name__ == "__main__":
    if len(sys.argv) != 6:

@@ -14,8 +14,8 @@ def svr_optimization(features,w_init,learning_rate=0.1,n_epochs=100,lambda_w=.01
    for i in range(n_epochs): 
       hyperplane_dist = numpy.dot(ext_features,w.T)
       hinge_dist = numpy.ones((hyperplane_dist.shape)) - hyperplane_dist
-      cost = numpy.sum(hinge_dist[hinge_dist[:,0]>0])/ext_features.shape[0] + lambda_w*numpy.dot(w,w.T)
-      grad = -1*numpy.sum(ext_features[hinge_dist[:,0]>0,:],axis=0)/ext_features.shape[0] + 2*lambda_w*w
+      cost = numpy.sum(hinge_dist[hinge_dist[:,0]>0])/N + lambda_w*numpy.dot(w,w.T)
+      grad = -1*numpy.sum(ext_features[hinge_dist[:,0]>0,:],axis=0)/N + 2*lambda_w*w
       w = w - learning_rate *grad
       #print cost
  
