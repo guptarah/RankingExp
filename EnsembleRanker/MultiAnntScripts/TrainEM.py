@@ -25,6 +25,16 @@ def SigmoidProb(ext_diff_feats,w):
    term2 = term1 + ones(term1.shape)
    return numpy.divide(term1,term2) 
 
+def ComputeA(k,cur_annt_labels):
+   e1_probs = k
+   e2_probs = numpy.ones(k.shape) - k 
+   cur_not_flip_prob = numpy.sum(e1_probs[cur_annt_labels == 1])/numpy.sum(e1_probs) +\
+      numpy.sum(e0_probs[cur_annt_labels == 0])/numpy.sum(e0_probs) 
+   cur_flip_prob = numpy.sum(e1_probs[cur_annt_labels == 0])/numpy.sum(e1_probs) +\
+      numpy.sum(e0_probs[cur_annt_labels == 1])/numpy.sum(e0_probs)
+   A = [cur_flip_prob, cur_not_flip_prob]
+   return A
+
 def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
    """
    diff_feats: difference between features extended with ones
@@ -77,10 +87,8 @@ def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
 
       # Estimating A's
       for i in range(R):
-         cur_annt_labels = annt_comparison_labels[i]      
-         cur_not_flip_prob = numpy.sum(k[cur_annt_labels == 1])/numpy.sum(k)
-         cur_flip_prob = numpy.sum(k[cur_annt_labels == 0])/numpy.sum(k)
-         A[i] = [cur_flip_prob, cur_not_flip_prob] 
+         cur_annt_labels = annt_comparison_labels[i]     
+         A[i] = ComputeA(k,cur_annt_labels) 
       
       if iter_counter > max_iter:
          convergence_flag = 0 
