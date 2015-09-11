@@ -18,27 +18,25 @@ def svr_optimization(features,soft_scores,w_init=0,learning_rate=0.1,n_epochs=10
       print 'count of soft scores is not equal to number of datapoints'
 
    ext_features = numpy.hstack((features,numpy.ones((features.shape[0],1))))
-   print ext_features.shape
  
    w = w_init 
    for i in range(n_epochs): 
       # computing cost for k*[1-z{w.T*(x_g-x_l)}] part
       hyperplane_dist_g = numpy.dot(ext_features,w.T)
-      wtd_hinge_dist_g = numpy.multiply(soft_scores, (numpy.ones((hyperplane_dist_g.shape)) - hyperplane_dist_g))
+      wtd_hinge_dist_g = numpy.array(numpy.multiply(soft_scores, (numpy.ones((hyperplane_dist_g.shape)) - hyperplane_dist_g)))
       cost_g = numpy.sum(wtd_hinge_dist_g[wtd_hinge_dist_g[:,0]>0])/N + lambda_w*numpy.dot(w,w.T)
       grad_g = -1*numpy.sum(ext_features[wtd_hinge_dist_g[:,0]>0,:],axis=0)/N 
 
       # computing cost for (1-k)[1-z{w.T*(x_l-x_g)}] part
       hyperplane_dist_l = -1*numpy.dot(ext_features,w.T)
       soft_scores_l = numpy.ones((soft_scores.shape))-soft_scores
-      wtd_hinge_dist_l = numpy.multiply(soft_scores_l, (numpy.ones((hyperplane_dist_l.shape)) - hyperplane_dist_l))
+      wtd_hinge_dist_l = numpy.array(numpy.multiply(soft_scores_l, (numpy.ones((hyperplane_dist_l.shape)) - hyperplane_dist_l)))
       cost_l = numpy.sum(wtd_hinge_dist_l[wtd_hinge_dist_l[:,0]>0])/N + lambda_w*numpy.dot(w,w.T)
       grad_l = -1*numpy.sum(ext_features[wtd_hinge_dist_l[:,0]>0,:],axis=0)/N 
 
       grad = grad_l + grad_g + 2*lambda_w*w
 
       w = w - learning_rate*grad
-      #print cost
  
    return w 
 

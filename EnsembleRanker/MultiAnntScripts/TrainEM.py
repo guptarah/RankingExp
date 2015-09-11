@@ -7,31 +7,45 @@ k*[1-z{w.T*(x_g-x_l)}] + (1-k)[1-z{w.T*(x_l-x_g)}]
 M step: estimating the model parameters w and A matrices
 """
 
+import numpy
+import sys
+sys.path.append('/auto/rcf-proj/pg/guptarah/RankingExp/scripts/EnsembleRanker/SVRanker')
+import SVRankerSoft
+
 def InitializeK(N):
-   init_k = numpy.ones((N,2))
-   init_k[:,1] = 0
+   init_k = .5*numpy.ones((N,1))
    return init_k
 
 def InitializeW(D):
-   return numpy.ones((D,1)) 
+   return numpy.ones((1,D)) 
 
 def InitializeA():
-   A = [0 1]# [probability that he flipped
+   A = [0.4,0.6]# [probability that he flipped
    # probability he did not flip]
    return A
 
 def SigmoidProb(ext_diff_feats,w):
-   term1 = numpy.exp(numpy.dot(ext_diff_feats,w.T))
-   term2 = term1 + ones(term1.shape)
+   term1 = numpy.exp((1/(numpy.dot(w,w.T)+.1))*.1*numpy.dot(ext_diff_feats,w.T))
+   term1[numpy.isinf(term1)] = 1000
+   term2 = term1 + numpy.ones(term1.shape)
    return numpy.divide(term1,term2) 
 
 def ComputeA(k,cur_annt_labels):
    e1_probs = k
-   e2_probs = numpy.ones(k.shape) - k 
-   cur_not_flip_prob = numpy.sum(e1_probs[cur_annt_labels == 1])/numpy.sum(e1_probs) +\
-      numpy.sum(e0_probs[cur_annt_labels == 0])/numpy.sum(e0_probs) 
-   cur_flip_prob = numpy.sum(e1_probs[cur_annt_labels == 0])/numpy.sum(e1_probs) +\
-      numpy.sum(e0_probs[cur_annt_labels == 1])/numpy.sum(e0_probs)
+   e0_probs = numpy.ones(k.shape) - k 
+#   cur_not_flip_prob = numpy.sum(e1_probs[cur_annt_labels == 1])/numpy.sum(e1_probs) +\
+#      numpy.sum(e0_probs[cur_annt_labels == 0])/numpy.sum(e0_probs) 
+#   cur_flip_prob = numpy.sum(e1_probs[cur_annt_labels == 0])/numpy.sum(e1_probs) +\
+#      numpy.sum(e0_probs[cur_annt_labels == 1])/numpy.sum(e0_probs)
+#   sum_probs = cur_flip_prob + cur_not_flip_prob
+#   cur_not_flip_prob = numpy.sum(e1_probs[cur_annt_labels == 1]) + numpy.sum(e0_probs[cur_annt_labels == 0])
+#   cur_flip_prob = numpy.sum(e1_probs[cur_annt_labels == 0]) + numpy.sum(e0_probs[cur_annt_labels == 1])
+#   sum_probs = cur_flip_prob + cur_not_flip_prob
+#   A = [cur_flip_prob/sum_probs, cur_not_flip_prob/sum_probs]
+   k_disc = k > 0.5
+   agreements = numpy.equal(numpy.matrix(cur_annt_labels).T,k_disc)
+   cur_not_flip_prob = numpy.mean(agreements)
+   cur_flip_prob = 1 - cur_not_flip_prob 
    A = [cur_flip_prob, cur_not_flip_prob]
    return A
 
@@ -55,42 +69,52 @@ def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
 
    convergence_flag = 1
    iter_counter = 0
-   while convergence_flag: 
+   while convergence_flag:
+      iter_counter = iter_counter + 1 
       
       # E step. Estimating k
-      model_probs = SigmoidProb(ext_diff_feats, init_w)
+      model_probs = SigmoidProb(ext_diff_feats, w)
+      print model_probs
       prod_probs_E1 = model_probs # probability that assumed diff is correct 
-      prod_probs_E0 = ones(model_probs.shape) - model_probs # probability that assumed diff is incorrect
+      prod_probs_E0 = numpy.ones(model_probs.shape) - model_probs # probability that assumed diff is incorrect
       for i in range(R):
          A_cur = A[i]
-         A_cur_replicated = numpy.matlib.repmat(A_cur,N,1)
          cur_annt_labels = annt_comparison_labels[i]       
+         cur_label_mat = numpy.vstack((numpy.logical_not(cur_annt_labels),cur_annt_labels))         
  
          # Below for E1 if an annotator said 0, flipping probability is multiplied and otherwise
-         cur_annt_probs_E1 = numpy.choose(cur_annt_labels,A_cur_replicated.T) 
-         prod_probs_E1 = prod_probs * cur_annt_probs
+         cur_annt_probs_E1 = numpy.matrix(A_cur) * cur_label_mat 
+         prod_probs_E1 = numpy.multiply(prod_probs_E1,cur_annt_probs_E1.T)
 
          # Below for E0 if an annotator said 1, flipping probability is multiplied and otherwise
-         cur_annt_probs_E0 = numpy.choose(numpy.logical_not(cur_annt_labels),A_cur_replicated.T)
-         prod_probs_E0 = prod_probs * cur_annt_probs
+         cur_annt_probs_E0 = numpy.matrix(A_cur) * numpy.logical_not(cur_label_mat) 
+         prod_probs_E0 = numpy.multiply(prod_probs_E0,cur_annt_probs_E0.T)
 
-      k = numpy.divide(prod_probs_E1,(prod_probs_E1+prod_probs_E0))
+      k_term1 = prod_probs_E1
+      k_term2 = prod_probs_E1+prod_probs_E0 + .001*numpy.ones(prod_probs_E1.shape)
+      k = numpy.divide(k_term1,k_term2)
 
 
       # M step. 
       # Estimating w 
-      diff_feats = ext_diff_feats[:,:-2] # unfortunately ones are appended again in SVRankerSoft 
+      diff_feats = ext_diff_feats[:,:-1] # unfortunately ones are appended again in SVRankerSoft 
       learning_rate = 0.2
-      n_epochs = 2000
+      n_epochs = 20
       lambda_w = .01  
-      w = SVRankerSoft.svr_optimization(ext_diff_feats,k,w,learning_rate,n_epochs,lambda_w)
+      w = SVRankerSoft.svr_optimization(diff_feats,k,w,learning_rate,n_epochs,lambda_w)
 
       # Estimating A's
       for i in range(R):
          cur_annt_labels = annt_comparison_labels[i]     
          A[i] = ComputeA(k,cur_annt_labels) 
-      
+         print A[i]     
+      print k 
       if iter_counter > max_iter:
          convergence_flag = 0
 
-   print 'Finished training'        
+   print 'Finished training'      
+   for i in range(R):
+      print A[i] 
+
+   return w,k
+
