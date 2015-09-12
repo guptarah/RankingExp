@@ -56,7 +56,6 @@ def PerformCV(qid_file,diff_feat_dir,feat_file,labels_file,batch_size=5):
          feature_diff_file = diff_feat_dir + '/' + str(int(train_batch_qid)) + '.features' 
          feature_diff = numpy.genfromtxt(feature_diff_file,delimiter=',')
          train_diff_features = numpy.vstack((train_diff_features,feature_diff))
-      numpy.savetxt('train_features',train_diff_features,fmt='%f',delimiter=',')
 
       
       w = numpy.ones((1,1+train_diff_features.shape[1])) # initial w

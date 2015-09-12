@@ -74,7 +74,6 @@ def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
       
       # E step. Estimating k
       model_probs = SigmoidProb(ext_diff_feats, w)
-      print model_probs
       prod_probs_E1 = model_probs # probability that assumed diff is correct 
       prod_probs_E0 = numpy.ones(model_probs.shape) - model_probs # probability that assumed diff is incorrect
       for i in range(R):
@@ -91,24 +90,22 @@ def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
          prod_probs_E0 = numpy.multiply(prod_probs_E0,cur_annt_probs_E0.T)
 
       k_term1 = prod_probs_E1
-      k_term2 = prod_probs_E1+prod_probs_E0 + .001*numpy.ones(prod_probs_E1.shape)
+      k_term2 = prod_probs_E1+prod_probs_E0 #+ .001*numpy.ones(prod_probs_E1.shape)
       k = numpy.divide(k_term1,k_term2)
 
 
       # M step. 
       # Estimating w 
       diff_feats = ext_diff_feats[:,:-1] # unfortunately ones are appended again in SVRankerSoft 
-      learning_rate = 0.2
+      learning_rate = 0.02
       n_epochs = 20
-      lambda_w = .01  
+      lambda_w = .001  
       w = SVRankerSoft.svr_optimization(diff_feats,k,w,learning_rate,n_epochs,lambda_w)
 
       # Estimating A's
       for i in range(R):
          cur_annt_labels = annt_comparison_labels[i]     
          A[i] = ComputeA(k,cur_annt_labels) 
-         print A[i]     
-      print k 
       if iter_counter > max_iter:
          convergence_flag = 0
 
