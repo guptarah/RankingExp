@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "PerformCV_EM.py", line 7, in <module>
+    import scipy.stats as stats
+  File "/auto/rcf-proj/pg/guptarah/PythonLibs/lib64/python2.6/site-packages/scipy/stats/__init__.py", line 338, in <module>
+    from .stats import *
+  File "/auto/rcf-proj/pg/guptarah/PythonLibs/lib64/python2.6/site-packages/scipy/stats/stats.py", line 184, in <module>
+    import scipy.special as special
+  File "/auto/rcf-proj/pg/guptarah/PythonLibs/lib64/python2.6/site-packages/scipy/special/__init__.py", line 586, in <module>
+    from ._ufuncs import *
+KeyboardInterrupt

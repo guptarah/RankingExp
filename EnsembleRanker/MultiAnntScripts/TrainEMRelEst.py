@@ -36,7 +36,7 @@ def SigmoidProb(ext_diff_feats,w):
 
 def ComputeAKNN(k,cur_annt_labels,features): # compute A using k means clustering
    # clustering based on Kmeans
-   nclust = 2 # should be a multiple of 2
+   nclust = 2 
    init_centroids = numpy.zeros((nclust,features.shape[1]))
    k_disc = k > 0.5 # models decisions
    agreements = numpy.ravel(1*numpy.equal(numpy.matrix(cur_annt_labels).T,k_disc))
@@ -53,13 +53,15 @@ def ComputeAKNN(k,cur_annt_labels,features): # compute A using k means clusterin
    A_entries = numpy.zeros((2,nclust))
    for i in range(0,nclust):
       cur_agreements = agreements[labels == i]
-      A_entries[0,i] = numpy.mean(cur_agreements) 
-      A_entries[1,i] = 1 - A_entries[0,i] 
+      A_entries[1,i] = numpy.mean(cur_agreements) 
+      A_entries[0,i] = 1 - A_entries[1,i] 
 
    # getting 1 in K encoding from labels
    lb = preprocessing.LabelBinarizer()
    lb.fit(labels)
-   labels_encoding = lb.transform(labels).T 
+   labels_encoding = lb.transform(labels).T
+   if nclust == 2: # since then it only gives a vector of 0 and 1
+      labels_encoding = numpy.vstack((numpy.logical_not(labels_encoding),labels_encoding))
    A = numpy.dot(A_entries,labels_encoding)
    return A
 
@@ -128,7 +130,7 @@ def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
       # Estimating A's
       for i in range(R):
          cur_annt_labels = annt_comparison_labels[i]     
-         A[i] = ComputeA(k,cur_annt_labels,ext_diff_feats) 
+         A[i] = ComputeAKNN(k,cur_annt_labels,ext_diff_feats) 
       if iter_counter > max_iter:
          convergence_flag = 0
 

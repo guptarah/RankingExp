@@ -4,19 +4,19 @@ from KendallTau import Kendall
 from SpearmanCorr import CORRELATION 
 import os
 
-def AddNoise(labels_file):
+def AddNoise(labels_file,k=0):
    labels = numpy.genfromtxt(labels_file,delimiter=',',dtype='int')
    max_label = numpy.amax(labels)
    min_label = numpy.amin(labels)
    print max_label, min_label  
  
    size_labels = labels.shape
-   noise1 = numpy.random.uniform(-1,1,size_labels) 
-   noise2 = 1.5*numpy.random.uniform(-1,1,size_labels) 
-   noise3 = 2*numpy.random.uniform(-1,1,size_labels) 
-   noise4 = 2.5*numpy.random.uniform(-1,1,size_labels) 
-   noise5 = 3*numpy.random.uniform(-1,1,size_labels) 
-   noise6 = 1.5*numpy.random.uniform(-1,1,size_labels) 
+   noise1 = (1+k)*numpy.random.uniform(-1,1,size_labels) 
+   noise2 = (1.5+k)*numpy.random.uniform(-1,1,size_labels) 
+   noise3 = (2+k)*numpy.random.uniform(-1,1,size_labels) 
+   noise4 = (2.5+k)*numpy.random.uniform(-1,1,size_labels) 
+   noise5 = (3+k)*numpy.random.uniform(-1,1,size_labels) 
+   noise6 = (3.5+k)*numpy.random.uniform(-1,1,size_labels) 
    
    noisy_labels1 = numpy.around((noise1 + labels))
    noisy_labels1[noisy_labels1<min_label] = min_label
@@ -66,9 +66,10 @@ def AddNoise(labels_file):
    print Kendall(labels, borda_count2)
 
 if __name__ == "__main__":
-   if len(sys.argv) != 2:
-      print 'please give the labels file only \
-             Usage: python AddNoiseToLabel.py LablesFile' 
+   if len(sys.argv) != 3:
+      print 'please give the labels file and noise level\
+             Usage: python AddNoiseToLabel.py LablesFile noise_level' 
    else:
       labels_file = sys.argv[1] 
-      AddNoise(labels_file)
+      noise_level = float(sys.argv[2])
+      AddNoise(labels_file,noise_level)

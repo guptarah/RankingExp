@@ -1,0 +1,7 @@
+├── NoisyDataCreation
+│   ├── AddNoiseToLabel.py : First run this to get noisy annotators
+├── PairwiseFeatureCreation
+│   ├── PreparePairwiseFeatures.py : Then run this to get difference features based on noisy labels
+│   └── PreparePairwiseFeaturesWNoisyLabels.py : Then run this to get difference features based on 
+                                     golden labels as well as noisy comparison labels by annotators
+
