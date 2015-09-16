@@ -12,6 +12,8 @@ import sys
 sys.path.append('/auto/rcf-proj/pg/guptarah/RankingExp/scripts/EnsembleRanker/SVRanker')
 import SVRankerSoft
 from sklearn import linear_model
+from sklearn.cluster import KMeans
+from sklearn import preprocessing
 
 def InitializeK(N):
    init_k = .5*numpy.ones((N,1))
@@ -32,7 +34,36 @@ def SigmoidProb(ext_diff_feats,w):
    term2 = term1 + numpy.ones(term1.shape)
    return numpy.divide(term1,term2) 
 
-def ComputeA(k,cur_annt_labels,features):
+def ComputeAKNN(k,cur_annt_labels,features): # compute A using k means clustering
+   # clustering based on Kmeans
+   nclust = 2 # should be a multiple of 2
+   init_centroids = numpy.zeros((nclust,features.shape[1]))
+   k_disc = k > 0.5 # models decisions
+   agreements = numpy.ravel(1*numpy.equal(numpy.matrix(cur_annt_labels).T,k_disc))
+   features0 = features[agreements == 0,:]
+   features1 = features[agreements == 1,:]
+   init_centroids[0,:] = numpy.mean(features0,axis=0)
+   for i in range (1,nclust):
+      init_centroids[i,:] = numpy.mean(features1,axis=0)
+   kmean_est = KMeans(n_clusters = nclust,init=init_centroids)
+   kmean_est.fit(features)
+   labels = kmean_est.labels_
+
+   # getting the A matrix per cluster
+   A_entries = numpy.zeros((2,nclust))
+   for i in range(0,nclust):
+      cur_agreements = agreements[labels == i]
+      A_entries[0,i] = numpy.mean(cur_agreements) 
+      A_entries[1,i] = 1 - A_entries[0,i] 
+
+   # getting 1 in K encoding from labels
+   lb = preprocessing.LabelBinarizer()
+   lb.fit(labels)
+   labels_encoding = lb.transform(labels).T 
+   A = numpy.dot(A_entries,labels_encoding)
+   return A
+
+def ComputeA(k,cur_annt_labels,features): # compute A using logistic regression
    k_disc = k > 0.5 # models decisions
    agreements = numpy.ravel(1*numpy.equal(numpy.matrix(cur_annt_labels).T,k_disc))
    # training model to predict agreements based on features
@@ -103,7 +134,7 @@ def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
 
    print 'Finished training'      
    for i in range(R):
-      print A[i] 
+      print numpy.mean(A[i], axis=1)
 
    return w,k
 
