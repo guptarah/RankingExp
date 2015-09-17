@@ -121,7 +121,9 @@ def TrainOnAll(qid_file, diff_feat_dir, feat_file, true_labels_file, noisy_label
          w = SVRanker3.svr_optimization(train_diff_features,w,learning_rate,n_epochs,lambda_w)
          print 'Annotator %d results:' %(noisy_annt_id)
          PrintResults(w,train_diff_features)
-  
+ 
+         print 'Annotator correct identification:', numpy.mean(annt_labels[noisy_annt_id])
+ 
          w_borda = w_borda + w     
 
       print 'Borda count Results:' 

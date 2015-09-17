@@ -25,6 +25,7 @@ def PrintResultsStats(w,features,labels):
    print 'Kendall Tau: %f, Spearman correlation: %f, Pearson correlation: %f'\
       %(stats.kendalltau(scores,labels)[0], stats.spearmanr(scores,labels)[0], \
       numpy.corrcoef(scores.T,labels.T)[0,1])  
+   return stats.spearmanr(scores,labels)[0]
 
 def PerformCV(qid_file, diff_feat_dir, feat_file, true_labels_file, noisy_labels_dir, batch_size, count_annts):
 #"""
@@ -57,9 +58,10 @@ def PerformCV(qid_file, diff_feat_dir, feat_file, true_labels_file, noisy_labels
       return
 
    num_batches = len(qids_unique)/batch_size
-   mean_result_storage = numpy.zeros((2,5+count_annts))
-   # 3 for True, EM, EMRelEst, Borda results and Majority vote and other for each annotator
-   # 2 rows: first for dev, second for dev
+   mean_result_storage = numpy.zeros((4,5+count_annts))
+   # 5 for True, EM, EMRelEst, Borda results and Majority vote and other for each annotator
+   # 2 rows for correcit pairwise identification: first for test, second for dev
+   # 2 rows for spearman correlation: first for test, second for dev
    
    for i in range(num_batches):
       # Determine the qids in test, dev and train sets
@@ -110,11 +112,11 @@ def PerformCV(qid_file, diff_feat_dir, feat_file, true_labels_file, noisy_labels
       w = SVRankerSoft.svr_optimization(train_diff_features,numpy.around(k),w,.02,2000,.001)      
 
       print 'Basic multiple annotator Test Results:'
-      PrintResultsStats(w,test_features,test_labels)
+      mean_result_storage[2,1] += PrintResultsStats(w,test_features,test_labels)
       mean_result_storage[0,1] += PrintResults(w,test_diff_features) 
  
       print 'Basic multiple annotator Dev Results:'
-      PrintResultsStats(w,dev_features,dev_labels)
+      mean_result_storage[3,1] += PrintResultsStats(w,dev_features,dev_labels)
       mean_result_storage[1,1] += PrintResults(w,dev_diff_features) 
 
       print 'Correct identifications on train set: %f' %(numpy.mean(k>.5))
@@ -127,11 +129,11 @@ def PerformCV(qid_file, diff_feat_dir, feat_file, true_labels_file, noisy_labels
       w = SVRankerSoft.svr_optimization(train_diff_features,numpy.around(k),w,.02,2000,.001)      
       
       print 'Rel est multiple annotator Test Results:'
-      PrintResultsStats(w,test_features,test_labels)
+      mean_result_storage[2,2] += PrintResultsStats(w,test_features,test_labels)
       mean_result_storage[0,2] += PrintResults(w,test_diff_features) 
  
       print 'Rel est multiple annotator Dev Results:'
-      PrintResultsStats(w,dev_features,dev_labels)
+      mean_result_storage[3,2] += PrintResultsStats(w,dev_features,dev_labels)
       mean_result_storage[1,2] += PrintResults(w,dev_diff_features) 
 
       print 'Correct identifications on train set: %f' %(numpy.mean(k>.5))
@@ -145,11 +147,11 @@ def PerformCV(qid_file, diff_feat_dir, feat_file, true_labels_file, noisy_labels
       w = SVRankerSoft.svr_optimization(train_diff_features,majority_vote,w,.02,2000,.001)      
       
       print 'Majority vote Test Results:'
-      PrintResultsStats(w,test_features,test_labels)
+      mean_result_storage[2,4] += PrintResultsStats(w,test_features,test_labels)
       mean_result_storage[0,4] += PrintResults(w,test_diff_features) 
   
       print 'Majority vote Dev Results:'
-      PrintResultsStats(w,dev_features,dev_labels)
+      mean_result_storage[3,4] += PrintResultsStats(w,dev_features,dev_labels)
       mean_result_storage[1,4] += PrintResults(w,dev_diff_features) 
  
       print '-----------------------------'
@@ -158,16 +160,16 @@ def PerformCV(qid_file, diff_feat_dir, feat_file, true_labels_file, noisy_labels
       # Getting results using true labels during training
       w = numpy.ones((1,1+train_diff_features.shape[1]))
       print 'training true baseline model for iter ... %d' % (i)
-      n_epochs, learning_rate, lambda_w = 2000, .02, .001
+      n_epochs, learning_rate, lambda_w = 2800, .02, .001
       #w = SVRanker3.svr_optimization(train_diff_features,w,learning_rate,n_epochs,lambda_w)
       w = SVRankerSoft.svr_optimization(train_diff_features,numpy.ones(majority_vote.shape),w,learning_rate,n_epochs,lambda_w)
    
       print 'True Baseline Test Results:'
-      PrintResultsStats(w,test_features,test_labels)
+      mean_result_storage[2,0] += PrintResultsStats(w,test_features,test_labels)
       mean_result_storage[0,0] += PrintResults(w,test_diff_features) 
   
       print 'True Baseline Dev Results:'
-      PrintResultsStats(w,dev_features,dev_labels)
+      mean_result_storage[3,0] += PrintResultsStats(w,dev_features,dev_labels)
       mean_result_storage[1,0] += PrintResults(w,dev_diff_features) 
  
       print '-----------------------------'
@@ -188,21 +190,21 @@ def PerformCV(qid_file, diff_feat_dir, feat_file, true_labels_file, noisy_labels
          w = SVRanker3.svr_optimization(train_diff_features,w,learning_rate,n_epochs,lambda_w)
   
          print 'Annotator %d Test Results:' %(noisy_annt_id)
-         PrintResultsStats(w,test_features,test_labels)
+         mean_result_storage[2,5+noisy_annt_id] += PrintResultsStats(w,test_features,test_labels)
          mean_result_storage[0,5+noisy_annt_id] += PrintResults(w,test_diff_features) 
   
          print 'Annotator %d Dev Results:' %(noisy_annt_id)
-         PrintResultsStats(w,dev_features,dev_labels)
+         mean_result_storage[3,5+noisy_annt_id] += PrintResultsStats(w,dev_features,dev_labels)
          mean_result_storage[1,5+noisy_annt_id] += PrintResults(w,dev_diff_features) 
 
          w_borda = w_borda + w     
 
       print 'Borda count Test Results:' 
-      PrintResultsStats(w_borda,test_features,test_labels)
+      mean_result_storage[2,3] += PrintResultsStats(w_borda,test_features,test_labels)
       mean_result_storage[0,3] += PrintResults(w,test_diff_features) 
   
       print 'Borda count Dev Results:' 
-      PrintResultsStats(w_borda,dev_features,dev_labels)
+      mean_result_storage[3,3] += PrintResultsStats(w_borda,dev_features,dev_labels)
       mean_result_storage[1,3] += PrintResults(w,dev_diff_features) 
 
 
