@@ -1,0 +1,1010 @@
+(16868,)
+(16868,)
+Finished training
+[0.48085131610149401, 0.51914868389850599]
+[0.47877638131373013, 0.52122361868626987]
+[0.47693858193028216, 0.52306141806971784]
+[0.47687929807920326, 0.52312070192079674]
+[0.0, 1.0]
+[0.47539720180222911, 0.52460279819777089]
+0.604221010197
+Basic multiple annotator Test Results:
+Kendall Tau: -0.561755, Spearman correlation: -0.732693, Pearson correlation: -0.822244
+Correctly identified pairs ratio: 0.175444715731
+Basic multiple annotator Dev Results:
+Kendall Tau: -0.542449, Spearman correlation: -0.742877, Pearson correlation: -0.827657
+Correctly identified pairs ratio: 0.174328358209
+Correct identifications on train set: 0.604221
+-----------------------------
+
+Majority vote Test Results:
+Kendall Tau: -0.079992, Spearman correlation: -0.116067, Pearson correlation: -0.185448
+Correctly identified pairs ratio: 0.453784443669
+Majority vote Dev Results:
+Kendall Tau: -0.095960, Spearman correlation: -0.134814, Pearson correlation: -0.206372
+Correctly identified pairs ratio: 0.442388059701
+Correct identifications on train set: 0.540728
+-----------------------------
+
+training true baseline model for iter ... 0
+True Baseline Test Results:
+Kendall Tau: 0.584092, Spearman correlation: 0.764391, Pearson correlation: 0.858237
+Correctly identified pairs ratio: 0.837460760377
+True Baseline Dev Results:
+Kendall Tau: 0.632940, Spearman correlation: 0.796303, Pearson correlation: 0.875808
+Correctly identified pairs ratio: 0.88
+-----------------------------
+
+Getting results for each annotator
+at noisy annotor id: 0
+Annotator 0 Test Results:
+Kendall Tau: -0.329325, Spearman correlation: -0.555676, Pearson correlation: -0.626279
+Correctly identified pairs ratio: 0.309731426578
+Annotator 0 Dev Results:
+Kendall Tau: -0.391299, Spearman correlation: -0.630240, Pearson correlation: -0.650622
+Correctly identified pairs ratio: 0.265074626866
+Correct identifications on train set: 0.596573
+at noisy annotor id: 1
+Annotator 1 Test Results:
+Kendall Tau: -0.428334, Spearman correlation: -0.591965, Pearson correlation: -0.544731
+Correctly identified pairs ratio: 0.252528775724
+Annotator 1 Dev Results:
+Kendall Tau: -0.430081, Spearman correlation: -0.624584, Pearson correlation: -0.587502
+Correctly identified pairs ratio: 0.241791044776
+Correct identifications on train set: 0.601375
+at noisy annotor id: 2
+Annotator 2 Test Results:
+Kendall Tau: 0.328118, Spearman correlation: 0.429971, Pearson correlation: 0.444438
+Correctly identified pairs ratio: 0.689570980119
+Annotator 2 Dev Results:
+Kendall Tau: 0.312741, Spearman correlation: 0.407578, Pearson correlation: 0.459332
+Correctly identified pairs ratio: 0.68776119403
+Correct identifications on train set: 0.596811
+at noisy annotor id: 3
+Annotator 3 Test Results:
+Kendall Tau: 0.643256, Spearman correlation: 0.805116, Pearson correlation: 0.878329
+Correctly identified pairs ratio: 0.871642832229
+Annotator 3 Dev Results:
+Kendall Tau: 0.637912, Spearman correlation: 0.807634, Pearson correlation: 0.879362
+Correctly identified pairs ratio: 0.882985074627
+Correct identifications on train set: 0.596988
+at noisy annotor id: 4
+Annotator 4 Test Results:
+Kendall Tau: -0.561755, Spearman correlation: -0.732693, Pearson correlation: -0.822244
+Correctly identified pairs ratio: 0.175444715731
+Annotator 4 Dev Results:
+Kendall Tau: -0.542449, Spearman correlation: -0.742877, Pearson correlation: -0.827657
+Correctly identified pairs ratio: 0.174328358209
+Correct identifications on train set: 0.604221
+at noisy annotor id: 5
+Annotator 5 Test Results:
+Kendall Tau: 0.341399, Spearman correlation: 0.450954, Pearson correlation: 0.453775
+Correctly identified pairs ratio: 0.697244506453
+Annotator 5 Dev Results:
+Kendall Tau: 0.361467, Spearman correlation: 0.469964, Pearson correlation: 0.496401
+Correctly identified pairs ratio: 0.717014925373
+Correct identifications on train set: 0.599300
+Borda count Test Results:
+Kendall Tau: -0.138552, Spearman correlation: -0.217514, Pearson correlation: -0.256453
+Correctly identified pairs ratio: 0.697244506453
+Borda count Dev Results:
+Kendall Tau: -0.194407, Spearman correlation: -0.302837, Pearson correlation: -0.312526
+Correctly identified pairs ratio: 0.717014925373
+Running mean of performances:
+[[ 0.83746076  0.17544472  0.          0.69724451  0.45378444  0.30973143
+   0.25252878  0.68957098  0.87164283  0.17544472  0.69724451]
+ [ 0.88        0.17432836  0.          0.71701493  0.44238806  0.26507463
+   0.24179104  0.68776119  0.88298507  0.17432836  0.71701493]
+ [ 0.7643913  -0.73269339  0.         -0.2175135  -0.11606744 -0.55567617
+  -0.59196493  0.42997067  0.80511575 -0.73269339  0.45095353]
+ [ 0.79630284 -0.74287749  0.         -0.30283701 -0.13481408 -0.63023997
+  -0.62458382  0.40757833  0.80763379 -0.74287749  0.46996391]]
+(17598,)
+(17598,)
+Finished training
+[0.30003409478349807, 0.69996590521650193]
+[0.46778042959427213, 0.53221957040572787]
+[0.29855665416524602, 0.70144334583475398]
+[0.29497670189794289, 0.70502329810205711]
+[0.29696556426866694, 0.70303443573133306]
+[0.29565859756790547, 0.70434140243209453]
+0.682804864189
+Basic multiple annotator Test Results:
+Kendall Tau: 0.405221, Spearman correlation: 0.635467, Pearson correlation: 0.714479
+Correctly identified pairs ratio: 0.74328358209
+Basic multiple annotator Dev Results:
+Kendall Tau: 0.455496, Spearman correlation: 0.652220, Pearson correlation: 0.685663
+Correctly identified pairs ratio: 0.76649508657
+Correct identifications on train set: 0.682805
+-----------------------------
+
+Majority vote Test Results:
+Kendall Tau: -0.455935, Spearman correlation: -0.584300, Pearson correlation: -0.633649
+Correctly identified pairs ratio: 0.226268656716
+Majority vote Dev Results:
+Kendall Tau: -0.208352, Spearman correlation: -0.278364, Pearson correlation: -0.357317
+Correctly identified pairs ratio: 0.378100140384
+Correct identifications on train set: 0.544551
+-----------------------------
+
+training true baseline model for iter ... 1
+True Baseline Test Results:
+Kendall Tau: 0.622996, Spearman correlation: 0.788967, Pearson correlation: 0.885984
+Correctly identified pairs ratio: 0.874029850746
+True Baseline Dev Results:
+Kendall Tau: 0.677845, Spearman correlation: 0.829821, Pearson correlation: 0.852427
+Correctly identified pairs ratio: 0.896583996256
+-----------------------------
+
+Getting results for each annotator
+at noisy annotor id: 0
+Annotator 0 Test Results:
+Kendall Tau: 0.226228, Spearman correlation: 0.288090, Pearson correlation: 0.321227
+Correctly identified pairs ratio: 0.635820895522
+Annotator 0 Dev Results:
+Kendall Tau: 0.085980, Spearman correlation: 0.105649, Pearson correlation: 0.077880
+Correctly identified pairs ratio: 0.550304164717
+Correct identifications on train set: 0.597568
+at noisy annotor id: 1
+Annotator 1 Test Results:
+Kendall Tau: 0.375389, Spearman correlation: 0.566212, Pearson correlation: 0.527419
+Correctly identified pairs ratio: 0.725373134328
+Annotator 1 Dev Results:
+Kendall Tau: 0.423503, Spearman correlation: 0.593692, Pearson correlation: 0.594289
+Correctly identified pairs ratio: 0.747777257838
+Correct identifications on train set: 0.601205
+at noisy annotor id: 2
+Annotator 2 Test Results:
+Kendall Tau: -0.643878, Spearman correlation: -0.822754, Pearson correlation: -0.861339
+Correctly identified pairs ratio: 0.113432835821
+Annotator 2 Dev Results:
+Kendall Tau: -0.581867, Spearman correlation: -0.752420, Pearson correlation: -0.794199
+Correctly identified pairs ratio: 0.159569489939
+Correct identifications on train set: 0.595295
+at noisy annotor id: 3
+Annotator 3 Test Results:
+Kendall Tau: -0.629957, Spearman correlation: -0.780809, Pearson correlation: -0.759289
+Correctly identified pairs ratio: 0.121791044776
+Annotator 3 Dev Results:
+Kendall Tau: -0.507484, Spearman correlation: -0.640800, Pearson correlation: -0.622066
+Correctly identified pairs ratio: 0.203088441741
+Correct identifications on train set: 0.604785
+at noisy annotor id: 4
+Annotator 4 Test Results:
+Kendall Tau: 0.624985, Spearman correlation: 0.797330, Pearson correlation: 0.830974
+Correctly identified pairs ratio: 0.875223880597
+Annotator 4 Dev Results:
+Kendall Tau: 0.692242, Spearman correlation: 0.843039, Pearson correlation: 0.838772
+Correctly identified pairs ratio: 0.905007019186
+Correct identifications on train set: 0.590863
+at noisy annotor id: 5
+Annotator 5 Test Results:
+Kendall Tau: -0.667744, Spearman correlation: -0.826264, Pearson correlation: -0.805091
+Correctly identified pairs ratio: 0.0991044776119
+Annotator 5 Dev Results:
+Kendall Tau: -0.469093, Spearman correlation: -0.622873, Pearson correlation: -0.568465
+Correctly identified pairs ratio: 0.225549836219
+Correct identifications on train set: 0.603194
+Borda count Test Results:
+Kendall Tau: -0.109882, Spearman correlation: -0.147937, Pearson correlation: -0.136581
+Correctly identified pairs ratio: 0.0991044776119
+Borda count Dev Results:
+Kendall Tau: -0.072383, Spearman correlation: -0.108642, Pearson correlation: -0.085292
+Correctly identified pairs ratio: 0.225549836219
+Running mean of performances:
+[[ 1.71149061  0.9187283   0.          0.79634898  0.6800531   0.94555232
+   0.97790191  0.80300382  0.99343388  1.0506686   0.79634898]
+ [ 1.776584    0.94082344  0.          0.94256476  0.8204882   0.81537879
+   0.9895683   0.84733068  1.08607352  1.07933538  0.94256476]
+ [ 1.55335795 -0.09722663  0.         -0.36545058 -0.70036758 -0.26758621
+  -0.02575325 -0.3927835   0.02430664  0.06463614 -0.37531006]
+ [ 1.62612366 -0.09065776  0.         -0.41147853 -0.41317795 -0.52459072
+  -0.03089189 -0.34484141  0.16683412  0.1001615  -0.15290957]]
+(17872,)
+(17872,)
+Finished training
+[0.48103178155774395, 0.51896821844225605]
+[0.47761862130707256, 0.52238137869292744]
+[0.47526857654431509, 0.52473142345568491]
+[0.47498880931065357, 0.52501119068934643]
+[0.47694717994628466, 0.52305282005371534]
+[0.0, 1.0]
+0.603122202328
+Basic multiple annotator Test Results:
+Kendall Tau: -0.553873, Spearman correlation: -0.718009, Pearson correlation: -0.687139
+Correctly identified pairs ratio: 0.17594759008
+Basic multiple annotator Dev Results:
+Kendall Tau: -0.721766, Spearman correlation: -0.857824, Pearson correlation: -0.858493
+Correctly identified pairs ratio: 0.0670949321913
+Correct identifications on train set: 0.603122
+-----------------------------
+
+Majority vote Test Results:
+Kendall Tau: -0.377913, Spearman correlation: -0.555122, Pearson correlation: -0.509732
+Correctly identified pairs ratio: 0.278895648105
+Majority vote Dev Results:
+Kendall Tau: -0.431394, Spearman correlation: -0.622162, Pearson correlation: -0.589584
+Correctly identified pairs ratio: 0.241256245539
+Correct identifications on train set: 0.544595
+-----------------------------
+
+training true baseline model for iter ... 2
+True Baseline Test Results:
+Kendall Tau: 0.683444, Spearman correlation: 0.834611, Pearson correlation: 0.853293
+Correctly identified pairs ratio: 0.899859616285
+True Baseline Dev Results:
+Kendall Tau: 0.626562, Spearman correlation: 0.804848, Pearson correlation: 0.882919
+Correctly identified pairs ratio: 0.875802997859
+-----------------------------
+
+Getting results for each annotator
+at noisy annotor id: 0
+Annotator 0 Test Results:
+Kendall Tau: 0.589865, Spearman correlation: 0.763991, Pearson correlation: 0.803250
+Correctly identified pairs ratio: 0.845109967244
+Annotator 0 Dev Results:
+Kendall Tau: 0.609901, Spearman correlation: 0.794759, Pearson correlation: 0.824905
+Correctly identified pairs ratio: 0.865810135617
+Correct identifications on train set: 0.596576
+at noisy annotor id: 1
+Annotator 1 Test Results:
+Kendall Tau: -0.023595, Spearman correlation: -0.025819, Pearson correlation: 0.000253
+Correctly identified pairs ratio: 0.48619560131
+Annotator 1 Dev Results:
+Kendall Tau: -0.104129, Spearman correlation: -0.152153, Pearson correlation: -0.212179
+Correctly identified pairs ratio: 0.437544610992
+Correct identifications on train set: 0.601220
+at noisy annotor id: 2
+Annotator 2 Test Results:
+Kendall Tau: -0.584266, Spearman correlation: -0.757759, Pearson correlation: -0.760433
+Correctly identified pairs ratio: 0.158165652784
+Annotator 2 Dev Results:
+Kendall Tau: -0.741997, Spearman correlation: -0.884921, Pearson correlation: -0.912178
+Correctly identified pairs ratio: 0.0549607423269
+Correct identifications on train set: 0.596520
+at noisy annotor id: 3
+Annotator 3 Test Results:
+Kendall Tau: 0.651451, Spearman correlation: 0.789549, Pearson correlation: 0.746563
+Correctly identified pairs ratio: 0.881141787553
+Annotator 3 Dev Results:
+Kendall Tau: 0.743187, Spearman correlation: 0.881997, Pearson correlation: 0.852947
+Correctly identified pairs ratio: 0.945753033547
+Correct identifications on train set: 0.596240
+at noisy annotor id: 4
+Annotator 4 Test Results:
+Kendall Tau: -0.416305, Spearman correlation: -0.625248, Pearson correlation: -0.649235
+Correctly identified pairs ratio: 0.256434253627
+Annotator 4 Dev Results:
+Kendall Tau: -0.474235, Spearman correlation: -0.695217, Pearson correlation: -0.771819
+Correctly identified pairs ratio: 0.215560314061
+Correct identifications on train set: 0.604689
+at noisy annotor id: 5
+Annotator 5 Test Results:
+Kendall Tau: -0.553873, Spearman correlation: -0.718009, Pearson correlation: -0.687139
+Correctly identified pairs ratio: 0.17594759008
+Annotator 5 Dev Results:
+Kendall Tau: -0.721766, Spearman correlation: -0.857824, Pearson correlation: -0.858493
+Correctly identified pairs ratio: 0.0670949321913
+Correct identifications on train set: 0.603122
+Borda count Test Results:
+Kendall Tau: -0.189957, Spearman correlation: -0.259614, Pearson correlation: -0.260679
+Correctly identified pairs ratio: 0.17594759008
+Borda count Dev Results:
+Kendall Tau: -0.442104, Spearman correlation: -0.553420, Pearson correlation: -0.530387
+Correctly identified pairs ratio: 0.0670949321913
+Running mean of performances:
+[[ 2.61135023  1.09467589  0.          0.97229657  0.95894875  1.79066229
+   1.46409751  0.96116947  1.87457566  1.30710285  0.97229657]
+ [ 2.65238699  1.00791838  0.          1.00965969  1.06174445  1.68118893
+   1.42711291  0.90229143  2.03182655  1.29489569  1.00965969]
+ [ 2.38796915 -0.81523521  0.         -0.6250647  -1.25548937  0.49640457
+  -0.05157192 -1.15054267  0.81385528 -0.56061194 -1.09331865]
+ [ 2.43097145 -0.94848139  0.         -0.96489819 -1.0353395   0.27016875
+  -0.18304513 -1.22976217  1.04883073 -0.59505506 -1.0107332 ]]
+(17235,)
+(17235,)
+Finished training
+[0.46144473455178414, 0.53855526544821586]
+[0.468059181897302, 0.531940818102698]
+[0.46011024078909202, 0.53988975921090798]
+[0.46388163620539602, 0.53611836379460398]
+[0.46202494923121551, 0.53797505076878449]
+[0.017464461850884794, 0.98253553814911521]
+0.621351900203
+Basic multiple annotator Test Results:
+Kendall Tau: -0.056527, Spearman correlation: -0.065209, Pearson correlation: -0.020189
+Correctly identified pairs ratio: 0.466095645967
+Basic multiple annotator Dev Results:
+Kendall Tau: -0.019582, Spearman correlation: -0.029624, Pearson correlation: -0.048672
+Correctly identified pairs ratio: 0.488103821197
+Correct identifications on train set: 0.621352
+-----------------------------
+
+Majority vote Test Results:
+Kendall Tau: -0.080328, Spearman correlation: -0.102808, Pearson correlation: -0.026771
+Correctly identified pairs ratio: 0.45182012848
+Majority vote Dev Results:
+Kendall Tau: -0.035011, Spearman correlation: -0.060103, Pearson correlation: -0.057204
+Correctly identified pairs ratio: 0.478731074261
+Correct identifications on train set: 0.541630
+-----------------------------
+
+training true baseline model for iter ... 3
+True Baseline Test Results:
+Kendall Tau: 0.634892, Spearman correlation: 0.809331, Pearson correlation: 0.874879
+Correctly identified pairs ratio: 0.880799428979
+True Baseline Dev Results:
+Kendall Tau: 0.591029, Spearman correlation: 0.764466, Pearson correlation: 0.846929
+Correctly identified pairs ratio: 0.859048305696
+-----------------------------
+
+Getting results for each annotator
+at noisy annotor id: 0
+Annotator 0 Test Results:
+Kendall Tau: -0.561109, Spearman correlation: -0.761107, Pearson correlation: -0.832853
+Correctly identified pairs ratio: 0.163454675232
+Annotator 0 Dev Results:
+Kendall Tau: -0.513294, Spearman correlation: -0.700679, Pearson correlation: -0.791934
+Correctly identified pairs ratio: 0.18817591925
+Correct identifications on train set: 0.603771
+at noisy annotor id: 1
+Annotator 1 Test Results:
+Kendall Tau: 0.171962, Spearman correlation: 0.233542, Pearson correlation: 0.300523
+Correctly identified pairs ratio: 0.603140613847
+Annotator 1 Dev Results:
+Kendall Tau: 0.193449, Spearman correlation: 0.256873, Pearson correlation: 0.235279
+Correctly identified pairs ratio: 0.617519826965
+Correct identifications on train set: 0.595880
+at noisy annotor id: 2
+Annotator 2 Test Results:
+Kendall Tau: -0.188623, Spearman correlation: -0.251087, Pearson correlation: -0.248602
+Correctly identified pairs ratio: 0.386866523911
+Annotator 2 Dev Results:
+Kendall Tau: -0.150724, Spearman correlation: -0.210591, Pearson correlation: -0.240601
+Correctly identified pairs ratio: 0.408435472242
+Correct identifications on train set: 0.598840
+at noisy annotor id: 3
+Annotator 3 Test Results:
+Kendall Tau: 0.570630, Spearman correlation: 0.766468, Pearson correlation: 0.853621
+Correctly identified pairs ratio: 0.842255531763
+Annotator 3 Dev Results:
+Kendall Tau: 0.487777, Spearman correlation: 0.682012, Pearson correlation: 0.834579
+Correctly identified pairs ratio: 0.796322999279
+Correct identifications on train set: 0.601451
+at noisy annotor id: 4
+Annotator 4 Test Results:
+Kendall Tau: -0.665834, Spearman correlation: -0.835283, Pearson correlation: -0.896832
+Correctly identified pairs ratio: 0.100642398287
+Annotator 4 Dev Results:
+Kendall Tau: -0.662831, Spearman correlation: -0.820791, Pearson correlation: -0.881188
+Correctly identified pairs ratio: 0.097332372026
+Correct identifications on train set: 0.598085
+at noisy annotor id: 5
+Annotator 5 Test Results:
+Kendall Tau: -0.652743, Spearman correlation: -0.808454, Pearson correlation: -0.799001
+Correctly identified pairs ratio: 0.108493932905
+Annotator 5 Dev Results:
+Kendall Tau: -0.601711, Spearman correlation: -0.750833, Pearson correlation: -0.764030
+Correctly identified pairs ratio: 0.134462869503
+Correct identifications on train set: 0.603887
+Borda count Test Results:
+Kendall Tau: -0.437344, Spearman correlation: -0.615582, Pearson correlation: -0.585237
+Correctly identified pairs ratio: 0.108493932905
+Borda count Dev Results:
+Kendall Tau: -0.376218, Spearman correlation: -0.529704, Pearson correlation: -0.528015
+Correctly identified pairs ratio: 0.134462869503
+Running mean of performances:
+[[ 3.49214966  1.56077153  0.          1.08079051  1.41076888  1.95411696
+   2.06723813  1.34803599  2.7168312   1.40774525  1.08079051]
+ [ 3.5114353   1.4960222   0.          1.14412256  1.54047552  1.86936485
+   2.04463274  1.3107269   2.82814955  1.39222806  1.14412256]
+ [ 3.19730064 -0.88044375  0.         -1.24064691 -1.35829759 -0.26470282
+   0.18197016 -1.40162964  1.58032361 -1.39589525 -1.90177289]
+ [ 3.19543723 -0.97810549  0.         -1.49460199 -1.0954424  -0.43051035
+   0.07382809 -1.44035308  1.73084306 -1.41584594 -1.76156643]]
+(15474,)
+(15474,)
+Finished training
+[0.47615354788677777, 0.52384645211322223]
+[0.47395631381672487, 0.52604368618327513]
+[0.47835078195683078, 0.52164921804316922]
+[0.0, 1.0]
+[0.48778596355176429, 0.51221403644823571]
+[0.48041876696393948, 0.51958123303606052]
+0.599715652062
+Basic multiple annotator Test Results:
+Kendall Tau: -0.088417, Spearman correlation: -0.121992, Pearson correlation: -0.165368
+Correctly identified pairs ratio: 0.446286950252
+Basic multiple annotator Dev Results:
+Kendall Tau: -0.058729, Spearman correlation: -0.098467, Pearson correlation: -0.085149
+Correctly identified pairs ratio: 0.465844402277
+Correct identifications on train set: 0.599716
+-----------------------------
+
+Majority vote Test Results:
+Kendall Tau: 0.734633, Spearman correlation: 0.874697, Pearson correlation: 0.912558
+Correctly identified pairs ratio: 0.946286950252
+Majority vote Dev Results:
+Kendall Tau: 0.709642, Spearman correlation: 0.854097, Pearson correlation: 0.884003
+Correctly identified pairs ratio: 0.912713472486
+Correct identifications on train set: 0.541618
+-----------------------------
+
+training true baseline model for iter ... 4
+True Baseline Test Results:
+Kendall Tau: 0.574414, Spearman correlation: 0.752201, Pearson correlation: 0.839319
+Correctly identified pairs ratio: 0.848954578226
+True Baseline Dev Results:
+Kendall Tau: 0.641125, Spearman correlation: 0.798091, Pearson correlation: 0.833826
+Correctly identified pairs ratio: 0.872865275142
+-----------------------------
+
+Getting results for each annotator
+at noisy annotor id: 0
+Annotator 0 Test Results:
+Kendall Tau: 0.289581, Spearman correlation: 0.424618, Pearson correlation: 0.437130
+Correctly identified pairs ratio: 0.67591925018
+Annotator 0 Dev Results:
+Kendall Tau: 0.289838, Spearman correlation: 0.441033, Pearson correlation: 0.407941
+Correctly identified pairs ratio: 0.668564199873
+Correct identifications on train set: 0.600620
+at noisy annotor id: 1
+Annotator 1 Test Results:
+Kendall Tau: 0.572634, Spearman correlation: 0.750141, Pearson correlation: 0.851622
+Correctly identified pairs ratio: 0.847873107426
+Annotator 1 Dev Results:
+Kendall Tau: 0.588921, Spearman correlation: 0.759504, Pearson correlation: 0.807236
+Correctly identified pairs ratio: 0.842504743833
+Correct identifications on train set: 0.600362
+at noisy annotor id: 2
+Annotator 2 Test Results:
+Kendall Tau: -0.621886, Spearman correlation: -0.785124, Pearson correlation: -0.849261
+Correctly identified pairs ratio: 0.122206200433
+Annotator 2 Dev Results:
+Kendall Tau: -0.507353, Spearman correlation: -0.695681, Pearson correlation: -0.736106
+Correctly identified pairs ratio: 0.204933586338
+Correct identifications on train set: 0.596743
+at noisy annotor id: 3
+Annotator 3 Test Results:
+Kendall Tau: -0.088417, Spearman correlation: -0.121992, Pearson correlation: -0.165368
+Correctly identified pairs ratio: 0.446286950252
+Annotator 3 Dev Results:
+Kendall Tau: -0.058729, Spearman correlation: -0.098467, Pearson correlation: -0.085149
+Correctly identified pairs ratio: 0.465844402277
+Correct identifications on train set: 0.599716
+at noisy annotor id: 4
+Annotator 4 Test Results:
+Kendall Tau: 0.534063, Spearman correlation: 0.716602, Pearson correlation: 0.870792
+Correctly identified pairs ratio: 0.824441240087
+Annotator 4 Dev Results:
+Kendall Tau: 0.441011, Spearman correlation: 0.645217, Pearson correlation: 0.782908
+Correctly identified pairs ratio: 0.756483238457
+Correct identifications on train set: 0.598035
+at noisy annotor id: 5
+Annotator 5 Test Results:
+Kendall Tau: -0.161999, Spearman correlation: -0.215847, Pearson correlation: -0.229782
+Correctly identified pairs ratio: 0.401586157174
+Annotator 5 Dev Results:
+Kendall Tau: -0.134315, Spearman correlation: -0.201886, Pearson correlation: -0.168720
+Correctly identified pairs ratio: 0.421884882985
+Correct identifications on train set: 0.596743
+Borda count Test Results:
+Kendall Tau: 0.385712, Spearman correlation: 0.493823, Pearson correlation: 0.507288
+Correctly identified pairs ratio: 0.401586157174
+Borda count Dev Results:
+Kendall Tau: 0.410559, Spearman correlation: 0.525248, Pearson correlation: 0.546188
+Correctly identified pairs ratio: 0.421884882985
+Running mean of performances:
+[[ 4.34110423  2.00705848  0.          1.48237666  2.35705583  2.63003621
+   2.91511123  1.47024219  3.16311815  2.23218649  1.48237666]
+ [ 4.38430057  1.9618666   0.          1.56600745  2.45318899  2.53792905
+   2.88713748  1.51566048  3.29399395  2.1487113   1.56600745]
+ [ 3.9495014  -1.00243588  0.         -0.74682365 -0.48360043  0.15991493
+   0.93211108 -2.18675366  1.45833148 -0.67929298 -2.11762024]
+ [ 3.99352832 -1.07657248  0.         -0.96935413 -0.24134506  0.01052242
+   0.83333191 -2.13603383  1.63237607 -0.77062904 -1.96345288]]
+(16194,)
+(16194,)
+Finished training
+[0.35272323082623191, 0.64727676917376809]
+[0.3665555143880449, 0.6334444856119551]
+[0.24453501296776581, 0.75546498703223419]
+[0.29078671112757815, 0.70921328887242185]
+[0.3318513029517105, 0.6681486970482895]
+[0.36754353464246015, 0.63245646535753985]
+0.664381869828
+Basic multiple annotator Test Results:
+Kendall Tau: 0.352374, Spearman correlation: 0.579112, Pearson correlation: 0.672381
+Correctly identified pairs ratio: 0.704933586338
+Basic multiple annotator Dev Results:
+Kendall Tau: 0.369434, Spearman correlation: 0.578945, Pearson correlation: 0.672238
+Correctly identified pairs ratio: 0.7147030185
+Correct identifications on train set: 0.664382
+-----------------------------
+
+Majority vote Test Results:
+Kendall Tau: -0.330079, Spearman correlation: -0.551578, Pearson correlation: -0.487746
+Correctly identified pairs ratio: 0.308032890576
+Majority vote Dev Results:
+Kendall Tau: -0.344302, Spearman correlation: -0.552813, Pearson correlation: -0.522482
+Correctly identified pairs ratio: 0.299902629017
+Correct identifications on train set: 0.541559
+-----------------------------
+
+training true baseline model for iter ... 5
+True Baseline Test Results:
+Kendall Tau: 0.650369, Spearman correlation: 0.804511, Pearson correlation: 0.844826
+Correctly identified pairs ratio: 0.878241619228
+True Baseline Dev Results:
+Kendall Tau: 0.683579, Spearman correlation: 0.835929, Pearson correlation: 0.845173
+Correctly identified pairs ratio: 0.897273612463
+-----------------------------
+
+Getting results for each annotator
+at noisy annotor id: 0
+Annotator 0 Test Results:
+Kendall Tau: -0.032083, Spearman correlation: -0.050441, Pearson correlation: -0.069319
+Correctly identified pairs ratio: 0.481340923466
+Annotator 0 Dev Results:
+Kendall Tau: 0.185136, Spearman correlation: 0.248491, Pearson correlation: 0.220258
+Correctly identified pairs ratio: 0.607594936709
+Correct identifications on train set: 0.602507
+at noisy annotor id: 1
+Annotator 1 Test Results:
+Kendall Tau: -0.476357, Spearman correlation: -0.603959, Pearson correlation: -0.610803
+Correctly identified pairs ratio: 0.222960151803
+Annotator 1 Dev Results:
+Kendall Tau: -0.371109, Spearman correlation: -0.483043, Pearson correlation: -0.473116
+Correctly identified pairs ratio: 0.284323271665
+Correct identifications on train set: 0.600037
+at noisy annotor id: 2
+Annotator 2 Test Results:
+Kendall Tau: 0.679190, Spearman correlation: 0.828598, Pearson correlation: 0.845402
+Correctly identified pairs ratio: 0.895003162555
+Annotator 2 Dev Results:
+Kendall Tau: 0.632478, Spearman correlation: 0.784006, Pearson correlation: 0.809163
+Correctly identified pairs ratio: 0.867575462512
+Correct identifications on train set: 0.604113
+at noisy annotor id: 3
+Annotator 3 Test Results:
+Kendall Tau: -0.674839, Spearman correlation: -0.827294, Pearson correlation: -0.849386
+Correctly identified pairs ratio: 0.10752688172
+Annotator 3 Dev Results:
+Kendall Tau: -0.600644, Spearman correlation: -0.758303, Pearson correlation: -0.763723
+Correctly identified pairs ratio: 0.150925024343
+Correct identifications on train set: 0.601704
+at noisy annotor id: 4
+Annotator 4 Test Results:
+Kendall Tau: -0.667770, Spearman correlation: -0.820261, Pearson correlation: -0.830304
+Correctly identified pairs ratio: 0.111638203669
+Annotator 4 Dev Results:
+Kendall Tau: -0.593105, Spearman correlation: -0.751747, Pearson correlation: -0.761130
+Correctly identified pairs ratio: 0.155306718598
+Correct identifications on train set: 0.602878
+at noisy annotor id: 5
+Annotator 5 Test Results:
+Kendall Tau: 0.190325, Spearman correlation: 0.250247, Pearson correlation: 0.289455
+Correctly identified pairs ratio: 0.610689437065
+Annotator 5 Dev Results:
+Kendall Tau: 0.294039, Spearman correlation: 0.384981, Pearson correlation: 0.384964
+Correctly identified pairs ratio: 0.670886075949
+Correct identifications on train set: 0.593121
+Borda count Test Results:
+Kendall Tau: -0.379563, Spearman correlation: -0.491419, Pearson correlation: -0.494291
+Correctly identified pairs ratio: 0.610689437065
+Borda count Dev Results:
+Kendall Tau: -0.216969, Spearman correlation: -0.289598, Pearson correlation: -0.286658
+Correctly identified pairs ratio: 0.670886075949
+Running mean of performances:
+[[ 5.21934585  2.71199207  0.          2.0930661   2.66508872  3.11137714
+   3.13807138  2.36524536  3.27064503  2.34382469  2.0930661 ]
+ [ 5.28157419  2.67656962  0.          2.23689352  2.75309162  3.14552398
+   3.17146076  2.38323595  3.44491898  2.30401802  2.23689352]
+ [ 4.75401205 -0.42332421  0.         -1.23824265 -1.0351786   0.10947437
+   0.32815173 -1.35815605  0.63103797 -1.49955369 -1.86737358]
+ [ 4.82945765 -0.49762794  0.         -1.25895218 -0.79415757  0.25901355
+   0.3502887  -1.35202824  0.87407339 -1.52237651 -1.5784714 ]]
+(17456,)
+(17456,)
+Finished training
+[0.3846814848762603, 0.6153185151237397]
+[0.3848533455545371, 0.6151466544454629]
+[0.12213565536205317, 0.87786434463794683]
+[0.40129468377635202, 0.59870531622364798]
+[0.39178505957836851, 0.60821494042163149]
+[0.38141613198900093, 0.61858386801099907]
+0.686697983501
+Basic multiple annotator Test Results:
+Kendall Tau: 0.376136, Spearman correlation: 0.583265, Pearson correlation: 0.680091
+Correctly identified pairs ratio: 0.718597857838
+Basic multiple annotator Dev Results:
+Kendall Tau: 0.389341, Spearman correlation: 0.612859, Pearson correlation: 0.730982
+Correctly identified pairs ratio: 0.725789473684
+Correct identifications on train set: 0.686698
+-----------------------------
+
+Majority vote Test Results:
+Kendall Tau: 0.625776, Spearman correlation: 0.763082, Pearson correlation: 0.747517
+Correctly identified pairs ratio: 0.863680623174
+Majority vote Dev Results:
+Kendall Tau: 0.544533, Spearman correlation: 0.667091, Pearson correlation: 0.641204
+Correctly identified pairs ratio: 0.815789473684
+Correct identifications on train set: 0.548694
+-----------------------------
+
+training true baseline model for iter ... 6
+True Baseline Test Results:
+Kendall Tau: 0.726302, Spearman correlation: 0.866545, Pearson correlation: 0.868122
+Correctly identified pairs ratio: 0.922103213242
+True Baseline Dev Results:
+Kendall Tau: 0.626213, Spearman correlation: 0.791928, Pearson correlation: 0.822996
+Correctly identified pairs ratio: 0.863157894737
+-----------------------------
+
+Getting results for each annotator
+at noisy annotor id: 0
+Annotator 0 Test Results:
+Kendall Tau: 0.036860, Spearman correlation: 0.025747, Pearson correlation: 0.036849
+Correctly identified pairs ratio: 0.521421616358
+Annotator 0 Dev Results:
+Kendall Tau: -0.117075, Spearman correlation: -0.168510, Pearson correlation: -0.169460
+Correctly identified pairs ratio: 0.432105263158
+Correct identifications on train set: 0.603231
+at noisy annotor id: 1
+Annotator 1 Test Results:
+Kendall Tau: -0.275609, Spearman correlation: -0.426266, Pearson correlation: -0.374639
+Correctly identified pairs ratio: 0.33982473223
+Annotator 1 Dev Results:
+Kendall Tau: -0.368467, Spearman correlation: -0.539948, Pearson correlation: -0.522694
+Correctly identified pairs ratio: 0.286315789474
+Correct identifications on train set: 0.598591
+at noisy annotor id: 2
+Annotator 2 Test Results:
+Kendall Tau: -0.375298, Spearman correlation: -0.580543, Pearson correlation: -0.617109
+Correctly identified pairs ratio: 0.281888997079
+Annotator 2 Dev Results:
+Kendall Tau: -0.461038, Spearman correlation: -0.662480, Pearson correlation: -0.727700
+Correctly identified pairs ratio: 0.232631578947
+Correct identifications on train set: 0.602486
+at noisy annotor id: 3
+Annotator 3 Test Results:
+Kendall Tau: 0.678552, Spearman correlation: 0.825571, Pearson correlation: 0.829948
+Correctly identified pairs ratio: 0.89435248296
+Annotator 3 Dev Results:
+Kendall Tau: 0.647994, Spearman correlation: 0.802654, Pearson correlation: 0.799360
+Correctly identified pairs ratio: 0.875789473684
+Correct identifications on train set: 0.598877
+at noisy annotor id: 4
+Annotator 4 Test Results:
+Kendall Tau: -0.345978, Spearman correlation: -0.562046, Pearson correlation: -0.565351
+Correctly identified pairs ratio: 0.298928919182
+Annotator 4 Dev Results:
+Kendall Tau: -0.422920, Spearman correlation: -0.635414, Pearson correlation: -0.645137
+Correctly identified pairs ratio: 0.254736842105
+Correct identifications on train set: 0.597388
+at noisy annotor id: 5
+Annotator 5 Test Results:
+Kendall Tau: -0.614886, Spearman correlation: -0.763393, Pearson correlation: -0.710495
+Correctly identified pairs ratio: 0.14264849075
+Annotator 5 Dev Results:
+Kendall Tau: -0.662515, Spearman correlation: -0.811543, Pearson correlation: -0.740837
+Correctly identified pairs ratio: 0.115789473684
+Correct identifications on train set: 0.601341
+Borda count Test Results:
+Kendall Tau: -0.309118, Spearman correlation: -0.494334, Pearson correlation: -0.422070
+Correctly identified pairs ratio: 0.14264849075
+Borda count Dev Results:
+Kendall Tau: -0.410215, Spearman correlation: -0.601565, Pearson correlation: -0.582507
+Correctly identified pairs ratio: 0.115789473684
+Running mean of performances:
+[[ 6.14144907  3.43058993  0.          2.23571459  3.52876934  3.63279875
+   3.47789612  2.64713435  4.16499751  2.64275361  2.23571459]
+ [ 6.14473208  3.40235909  0.          2.352683    3.5688811   3.57762925
+   3.45777655  2.61586753  4.32070845  2.55875486  2.352683  ]
+ [ 5.62055701  0.15994115  0.         -1.7325762  -0.27209639  0.13522168
+  -0.09811423 -1.93869871  1.45660919 -2.06159972 -2.63076653]
+ [ 5.62138597  0.11523102  0.         -1.86051697 -0.12706656  0.09050324
+  -0.18965939 -2.01450802  1.67672783 -2.15779038 -2.39001415]]
+(17411,)
+(17411,)
+Finished training
+[0.34541381885015221, 0.65458618114984779]
+[0.34667738785825053, 0.65332261214174947]
+[0.3934868761128022, 0.6065131238871978]
+[0.2537476308081098, 0.7462523691918902]
+[0.33519039687553842, 0.66480960312446158]
+[0.29780024122681059, 0.70219975877318941]
+0.748377462524
+Basic multiple annotator Test Results:
+Kendall Tau: -0.561776, Spearman correlation: -0.738298, Pearson correlation: -0.765276
+Correctly identified pairs ratio: 0.174210526316
+Basic multiple annotator Dev Results:
+Kendall Tau: -0.452605, Spearman correlation: -0.650602, Pearson correlation: -0.638633
+Correctly identified pairs ratio: 0.236303001429
+Correct identifications on train set: 0.748377
+-----------------------------
+
+Majority vote Test Results:
+Kendall Tau: -0.024504, Spearman correlation: -0.019113, Pearson correlation: -0.075940
+Correctly identified pairs ratio: 0.485789473684
+Majority vote Dev Results:
+Kendall Tau: -0.190118, Spearman correlation: -0.257671, Pearson correlation: -0.284100
+Correctly identified pairs ratio: 0.38923296808
+Correct identifications on train set: 0.545804
+-----------------------------
+
+training true baseline model for iter ... 7
+True Baseline Test Results:
+Kendall Tau: 0.571759, Spearman correlation: 0.753535, Pearson correlation: 0.828229
+Correctly identified pairs ratio: 0.831578947368
+True Baseline Dev Results:
+Kendall Tau: 0.698736, Spearman correlation: 0.850714, Pearson correlation: 0.866988
+Correctly identified pairs ratio: 0.90709861839
+-----------------------------
+
+Getting results for each annotator
+at noisy annotor id: 0
+Annotator 0 Test Results:
+Kendall Tau: 0.037210, Spearman correlation: 0.073846, Pearson correlation: 0.091765
+Correctly identified pairs ratio: 0.521578947368
+Annotator 0 Dev Results:
+Kendall Tau: 0.018399, Spearman correlation: 0.036422, Pearson correlation: 0.038091
+Correctly identified pairs ratio: 0.510719390186
+Correct identifications on train set: 0.600770
+at noisy annotor id: 1
+Annotator 1 Test Results:
+Kendall Tau: -0.241410, Spearman correlation: -0.350888, Pearson correlation: -0.344867
+Correctly identified pairs ratio: 0.36
+Annotator 1 Dev Results:
+Kendall Tau: -0.158228, Spearman correlation: -0.242316, Pearson correlation: -0.211417
+Correctly identified pairs ratio: 0.407813244402
+Correct identifications on train set: 0.598128
+at noisy annotor id: 2
+Annotator 2 Test Results:
+Kendall Tau: -0.649809, Spearman correlation: -0.786315, Pearson correlation: -0.689855
+Correctly identified pairs ratio: 0.123157894737
+Annotator 2 Dev Results:
+Kendall Tau: -0.518022, Spearman correlation: -0.665757, Pearson correlation: -0.625208
+Correctly identified pairs ratio: 0.198189614102
+Correct identifications on train set: 0.600712
+at noisy annotor id: 3
+Annotator 3 Test Results:
+Kendall Tau: -0.520029, Spearman correlation: -0.706520, Pearson correlation: -0.777867
+Correctly identified pairs ratio: 0.198421052632
+Annotator 3 Dev Results:
+Kendall Tau: -0.446063, Spearman correlation: -0.645645, Pearson correlation: -0.724497
+Correctly identified pairs ratio: 0.240114340162
+Correct identifications on train set: 0.597783
+at noisy annotor id: 4
+Annotator 4 Test Results:
+Kendall Tau: 0.297678, Spearman correlation: 0.465600, Pearson correlation: 0.429227
+Correctly identified pairs ratio: 0.672631578947
+Annotator 4 Dev Results:
+Kendall Tau: 0.428891, Spearman correlation: 0.585750, Pearson correlation: 0.566646
+Correctly identified pairs ratio: 0.749880895665
+Correct identifications on train set: 0.599047
+at noisy annotor id: 5
+Annotator 5 Test Results:
+Kendall Tau: -0.665238, Spearman correlation: -0.812946, Pearson correlation: -0.775903
+Correctly identified pairs ratio: 0.114210526316
+Annotator 5 Dev Results:
+Kendall Tau: -0.569538, Spearman correlation: -0.729798, Pearson correlation: -0.680110
+Correctly identified pairs ratio: 0.168175321582
+Correct identifications on train set: 0.600712
+Borda count Test Results:
+Kendall Tau: -0.643456, Spearman correlation: -0.798311, Pearson correlation: -0.760831
+Correctly identified pairs ratio: 0.114210526316
+Borda count Dev Results:
+Kendall Tau: -0.529470, Spearman correlation: -0.690727, Pearson correlation: -0.625579
+Correctly identified pairs ratio: 0.168175321582
+Running mean of performances:
+[[ 6.97302801  3.60480045  0.          2.34992512  4.01455881  4.1543777
+   3.83789612  2.77029225  4.36341856  3.31538519  2.34992512]
+ [ 7.0518307   3.63866209  0.          2.52085832  3.95811406  4.08834864
+   3.86558979  2.81405714  4.56082279  3.30863576  2.52085832]
+ [ 6.37409184 -0.57835658  0.         -2.53088673 -0.2912096   0.20906816
+  -0.44900196 -2.72501335  0.75008884 -1.59599933 -3.44371269]
+ [ 6.47209979 -0.53537098  0.         -2.5512439  -0.38473777  0.12692476
+  -0.43197573 -2.68026548  1.03108269 -1.57204062 -3.11981194]]
+(17970,)
+(17970,)
+Finished training
+[0.33383416805787425, 0.66616583194212575]
+[0.31702838063439065, 0.68297161936560935]
+[0.34340567612687811, 0.65659432387312189]
+[0.34212576516416249, 0.65787423483583751]
+[0.336505286588759, 0.663494713411241]
+[0.29037284362826932, 0.70962715637173068]
+0.765776293823
+Basic multiple annotator Test Results:
+Kendall Tau: 0.684835, Spearman correlation: 0.837681, Pearson correlation: 0.859969
+Correctly identified pairs ratio: 0.898999523583
+Basic multiple annotator Dev Results:
+Kendall Tau: 0.658742, Spearman correlation: 0.822534, Pearson correlation: 0.889146
+Correctly identified pairs ratio: 0.891126025354
+Correct identifications on train set: 0.765776
+-----------------------------
+
+Majority vote Test Results:
+Kendall Tau: 0.388005, Spearman correlation: 0.503620, Pearson correlation: 0.533978
+Correctly identified pairs ratio: 0.726060028585
+Majority vote Dev Results:
+Kendall Tau: 0.538171, Spearman correlation: 0.675255, Pearson correlation: 0.640870
+Correctly identified pairs ratio: 0.819537658464
+Correct identifications on train set: 0.543239
+-----------------------------
+
+training true baseline model for iter ... 8
+True Baseline Test Results:
+Kendall Tau: 0.704460, Spearman correlation: 0.854545, Pearson correlation: 0.868446
+Correctly identified pairs ratio: 0.910433539781
+True Baseline Dev Results:
+Kendall Tau: 0.644927, Spearman correlation: 0.814247, Pearson correlation: 0.895034
+Correctly identified pairs ratio: 0.882923191648
+-----------------------------
+
+Getting results for each annotator
+at noisy annotor id: 0
+Annotator 0 Test Results:
+Kendall Tau: -0.596522, Spearman correlation: -0.760593, Pearson correlation: -0.754152
+Correctly identified pairs ratio: 0.152453549309
+Annotator 0 Dev Results:
+Kendall Tau: -0.695164, Spearman correlation: -0.848750, Pearson correlation: -0.841931
+Correctly identified pairs ratio: 0.0872483221477
+Correct identifications on train set: 0.600890
+at noisy annotor id: 1
+Annotator 1 Test Results:
+Kendall Tau: -0.388005, Spearman correlation: -0.610620, Pearson correlation: -0.606478
+Correctly identified pairs ratio: 0.273939971415
+Annotator 1 Dev Results:
+Kendall Tau: -0.416345, Spearman correlation: -0.655892, Pearson correlation: -0.674514
+Correctly identified pairs ratio: 0.252796420582
+Correct identifications on train set: 0.597218
+at noisy annotor id: 2
+Annotator 2 Test Results:
+Kendall Tau: 0.168858, Spearman correlation: 0.223215, Pearson correlation: 0.234034
+Correctly identified pairs ratio: 0.598380181039
+Annotator 2 Dev Results:
+Kendall Tau: 0.182740, Spearman correlation: 0.241066, Pearson correlation: 0.255090
+Correctly identified pairs ratio: 0.608501118568
+Correct identifications on train set: 0.600445
+at noisy annotor id: 3
+Annotator 3 Test Results:
+Kendall Tau: 0.625142, Spearman correlation: 0.785976, Pearson correlation: 0.826571
+Correctly identified pairs ratio: 0.864221057646
+Annotator 3 Dev Results:
+Kendall Tau: 0.658742, Spearman correlation: 0.824128, Pearson correlation: 0.881883
+Correctly identified pairs ratio: 0.891126025354
+Correct identifications on train set: 0.594157
+at noisy annotor id: 4
+Annotator 4 Test Results:
+Kendall Tau: -0.518022, Spearman correlation: -0.691453, Pearson correlation: -0.635942
+Correctly identified pairs ratio: 0.198189614102
+Annotator 4 Dev Results:
+Kendall Tau: -0.663766, Spearman correlation: -0.827262, Pearson correlation: -0.804343
+Correctly identified pairs ratio: 0.105891126025
+Correct identifications on train set: 0.596661
+at noisy annotor id: 5
+Annotator 5 Test Results:
+Kendall Tau: -0.298874, Spearman correlation: -0.391108, Pearson correlation: -0.411087
+Correctly identified pairs ratio: 0.325869461648
+Annotator 5 Dev Results:
+Kendall Tau: -0.440208, Spearman correlation: -0.566648, Pearson correlation: -0.521582
+Correctly identified pairs ratio: 0.238627889635
+Correct identifications on train set: 0.603061
+Borda count Test Results:
+Kendall Tau: -0.463235, Spearman correlation: -0.616331, Pearson correlation: -0.550591
+Correctly identified pairs ratio: 0.325869461648
+Borda count Dev Results:
+Kendall Tau: -0.629855, Spearman correlation: -0.784154, Pearson correlation: -0.707605
+Correctly identified pairs ratio: 0.238627889635
+Running mean of performances:
+[[ 7.88346155  4.50379998  0.          2.67579458  4.74061884  4.30683125
+   4.11183609  3.36867243  5.22763962  3.5135748   2.67579458]
+ [ 7.93475389  4.52978812  0.          2.75948621  4.77765172  4.17559696
+   4.11838621  3.42255826  5.45194882  3.41452688  2.75948621]
+ [ 7.22863726  0.25932412  0.         -3.14721803  0.21241013 -0.55152484
+  -1.05962148 -2.50179801  1.53606437 -2.28745269 -3.83482027]
+ [ 7.2863472   0.28716338  0.         -3.33539793  0.29051705 -0.72182511
+  -1.08786774 -2.4391998   1.8552107  -2.39930281 -3.68645972]]
+(17202,)
+(17202,)
+Finished training
+[0.15905127310777811, 0.84094872689222189]
+[0.37681664922683411, 0.62318335077316589]
+[0.39123357749098941, 0.60876642250901059]
+[0.39053598418788515, 0.60946401581211485]
+[0.38356005115684222, 0.61643994884315778]
+[0.36705034298337402, 0.63294965701662598]
+0.729798860598
+Basic multiple annotator Test Results:
+Kendall Tau: -0.403786, Spearman correlation: -0.610978, Pearson correlation: -0.574773
+Correctly identified pairs ratio: 0.260253542133
+Basic multiple annotator Dev Results:
+Kendall Tau: -0.265935, Spearman correlation: -0.413935, Pearson correlation: -0.430640
+Correctly identified pairs ratio: 0.346355074991
+Correct identifications on train set: 0.729799
+-----------------------------
+
+Majority vote Test Results:
+Kendall Tau: -0.487934, Spearman correlation: -0.613235, Pearson correlation: -0.596635
+Correctly identified pairs ratio: 0.21029082774
+Majority vote Dev Results:
+Kendall Tau: -0.503798, Spearman correlation: -0.627980, Pearson correlation: -0.688780
+Correctly identified pairs ratio: 0.20892919428
+Correct identifications on train set: 0.544065
+-----------------------------
+
+training true baseline model for iter ... 9
+True Baseline Test Results:
+Kendall Tau: 0.636135, Spearman correlation: 0.807926, Pearson correlation: 0.883177
+Correctly identified pairs ratio: 0.877703206562
+True Baseline Dev Results:
+Kendall Tau: 0.600996, Spearman correlation: 0.776804, Pearson correlation: 0.866259
+Correctly identified pairs ratio: 0.84722706662
+-----------------------------
+
+Getting results for each annotator
+at noisy annotor id: 0
+Annotator 0 Test Results:
+Kendall Tau: -0.623576, Spearman correlation: -0.785907, Pearson correlation: -0.746008
+Correctly identified pairs ratio: 0.129753914989
+Annotator 0 Dev Results:
+Kendall Tau: -0.634200, Spearman correlation: -0.782983, Pearson correlation: -0.770777
+Correctly identified pairs ratio: 0.133589117544
+Correct identifications on train set: 0.605511
+at noisy annotor id: 1
+Annotator 1 Test Results:
+Kendall Tau: -0.593433, Spearman correlation: -0.777461, Pearson correlation: -0.815590
+Correctly identified pairs ratio: 0.147651006711
+Annotator 1 Dev Results:
+Kendall Tau: -0.623333, Spearman correlation: -0.782308, Pearson correlation: -0.841718
+Correctly identified pairs ratio: 0.139867457272
+Correct identifications on train set: 0.593884
+at noisy annotor id: 2
+Annotator 2 Test Results:
+Kendall Tau: -0.091056, Spearman correlation: -0.143959, Pearson correlation: -0.120282
+Correctly identified pairs ratio: 0.445935868755
+Annotator 2 Dev Results:
+Kendall Tau: 0.039543, Spearman correlation: 0.054032, Pearson correlation: 0.022172
+Correctly identified pairs ratio: 0.522846180677
+Correct identifications on train set: 0.598884
+at noisy annotor id: 3
+Annotator 3 Test Results:
+Kendall Tau: 0.647438, Spearman correlation: 0.814274, Pearson correlation: 0.857081
+Correctly identified pairs ratio: 0.884414615958
+Annotator 3 Dev Results:
+Kendall Tau: 0.650500, Spearman correlation: 0.812801, Pearson correlation: 0.862590
+Correctly identified pairs ratio: 0.875828392047
+Correct identifications on train set: 0.600395
+at noisy annotor id: 4
+Annotator 4 Test Results:
+Kendall Tau: -0.703956, Spearman correlation: -0.855284, Pearson correlation: -0.814860
+Correctly identified pairs ratio: 0.0820283370619
+Annotator 4 Dev Results:
+Kendall Tau: -0.695175, Spearman correlation: -0.840839, Pearson correlation: -0.856743
+Correctly identified pairs ratio: 0.0983606557377
+Correct identifications on train set: 0.601209
+at noisy annotor id: 5
+Annotator 5 Test Results:
+Kendall Tau: 0.315870, Spearman correlation: 0.414295, Pearson correlation: 0.430665
+Correctly identified pairs ratio: 0.68754660701
+Annotator 5 Dev Results:
+Kendall Tau: 0.385470, Spearman correlation: 0.498213, Pearson correlation: 0.526380
+Correctly identified pairs ratio: 0.722706662016
+Correct identifications on train set: 0.595512
+Borda count Test Results:
+Kendall Tau: -0.292007, Spearman correlation: -0.429169, Pearson correlation: -0.417331
+Correctly identified pairs ratio: 0.68754660701
+Borda count Dev Results:
+Kendall Tau: -0.157267, Spearman correlation: -0.245917, Pearson correlation: -0.279788
+Correctly identified pairs ratio: 0.722706662016
+Running mean of performances:
+[[ 8.76116476  4.76405352  0.          3.36334119  4.95090967  4.43658517
+   4.25948709  3.8146083   6.11205424  3.59560314  3.36334119]
+ [ 8.78198096  4.87614319  0.          3.48219287  4.98658092  4.30918608
+   4.25825367  3.94540444  6.32777721  3.51288754  3.48219287]
+ [ 8.03656319 -0.3516536   0.         -3.57638718 -0.40082525 -1.33743189
+  -1.8370822  -2.64575746  2.35033834 -3.1427365  -3.42052516]
+ [ 8.06315115 -0.12677124  0.         -3.58131451 -0.33746283 -1.504808
+  -1.87017524 -2.38516825  2.66801135 -3.24014145 -3.18824683]]

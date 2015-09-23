@@ -20,12 +20,12 @@ def InitializeW(D):
    return numpy.ones((1,D)) 
 
 def InitializeA():
-   A = [0.4,0.6]# [probability that he flipped
+   A = [0.1,0.9]# [probability that he flipped
    # probability he did not flip]
    return A
 
 def SigmoidProb(ext_diff_feats,w):
-   term1 = numpy.exp((1/(numpy.dot(w,w.T)+.1))*.1*numpy.dot(ext_diff_feats,w.T))
+   term1 = numpy.exp(numpy.dot(ext_diff_feats,w.T)*(.1/(numpy.dot(w,w.T)+.1)))
    term1[numpy.isinf(term1)] = 1000
    term2 = term1 + numpy.ones(term1.shape)
    return numpy.divide(term1,term2) 
@@ -105,7 +105,7 @@ def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
       # Estimating A's
       for i in range(R):
          cur_annt_labels = annt_comparison_labels[i]     
-         A[i] = ComputeA(k,cur_annt_labels) 
+         A[i] = ComputeA(k,cur_annt_labels)
       if iter_counter > max_iter:
          convergence_flag = 0
 

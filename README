@@ -1,0 +1,23 @@
+├── NoisyDataCreation
+│   ├── AddNoiseToLabel.py : First run this to get noisy annotators
+├── PairwiseFeatureCreation
+│   ├── PreparePairwiseFeatures.py : Then run this to get difference features based on noisy labels
+│   └── PreparePairwiseFeaturesWNoisyLabels.py : Then run this to get difference features based on 
+                                     golden labels as well as noisy comparison labels by annotators
+
+Example of steps 
+1. python AddNoiseToLabel.py ../../../data/wine_quality/Noise3/labels 1.2
+2. python PreparePairwiseFeatures.py ../../../data/wine_quality/Noise3/noisy_labels1 ../../../data/wine_quality/Noise3/features ../../../data/wine_quality/Noise3/qids
+3. python PreparePairwiseFeatures.py ../../../data/wine_quality/Noise3/noisy_labels1 ../../../data/wine_quality/Noise3/features ../../../data/wine_quality/Noise3/qids
+4. python PreparePairwiseFeatures.py ../../../data/wine_quality/Noise3/noisy_labels1 ../../../data/wine_quality/Noise3/features ../../../data/wine_quality/Noise3/qids
+5. python PreparePairwiseFeatures.py ../../../data/wine_quality/Noise3/noisy_labels1 ../../../data/wine_quality/Noise3/features ../../../data/wine_quality/Noise3/qids
+6. python PreparePairwiseFeatures.py ../../../data/wine_quality/Noise3/noisy_labels1 ../../../data/wine_quality/Noise3/features ../../../data/wine_quality/Noise3/qids
+7. python PreparePairwiseFeatures.py ../../../data/wine_quality/Noise3/noisy_labels1 ../../../data/wine_quality/Noise3/features ../../../data/wine_quality/Noise3/qids
+8. python PreparePairwiseFeaturesWNoisyLabels.py ../../../data/wine_quality/Noise3/labels  ../../../data/wine_quality/Noise3/ 6 ../../../data/wine_quality/Noise3/features ../../../data/wine_quality/Noise3/qids
+
+Training models
+on all the data 
+9. python TrainOnAll.py ../../../data/wine_quality/Noise3/qids ../../../data/wine_quality/Noise3/noisy_features/ ../../../data/wine_quality/Noise3/features  ../../../data/wine_quality/Noise3/labels ../../../data/wine_quality/Noise3/noisy_labels_pairwise/ 1 6
+
+using cross validation
+10. python PerformCV_All.py ../../../data/wine_quality/Noise3/qids ../../../data/wine_quality/Noise3/noisy_features/ ../../../data/wine_quality/Noise3/features  ../../../data/wine_quality/Noise3/labels ../../../data/wine_quality/Noise3/noisy_labels_pairwise/ 1 6 

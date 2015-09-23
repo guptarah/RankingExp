@@ -91,13 +91,13 @@ def TrainOnAll(qid_file, diff_feat_dir, feat_file, true_labels_file, noisy_label
       # Training model using TrainEMRelEst function
       w,k = TrainEMRelEst.TrainModel(ext_diff_feats,annt_labels,max_iter)
       print 'TrainEMRelEst Results:'
-      print 'Correct identifications on train set: %f' %(numpy.mean(k>.5))
+      print 'Correct identifications on train set: %f' %(numpy.mean(k>.5)+(.5*numpy.mean(k==.5)))
 
       print '-----------------------------'
       print ''
 
       # Getting results using majority vote 
-      majority_vote = ((numpy.mean(numpy.matrix(annt_labels),axis=0) > .5)*1).T
+      majority_vote = (((numpy.mean(numpy.matrix(annt_labels),axis=0) > .5)+.5*(numpy.mean(numpy.matrix(annt_labels),axis=0) == .5))*1).T
       print 'Majority vote Results:'
       print 'Correct identifications on train set: %f' %(numpy.mean(majority_vote))
       
@@ -124,7 +124,7 @@ def TrainOnAll(qid_file, diff_feat_dir, feat_file, true_labels_file, noisy_label
  
          print 'Annotator correct identification:', numpy.mean(annt_labels[noisy_annt_id])
  
-         w_borda = w_borda + w     
+         w_borda = w_borda + w/numpy.linalg.norm(w,2) 
 
       print 'Borda count Results:' 
       PrintResults(w_borda,train_diff_features)

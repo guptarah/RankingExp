@@ -1,0 +1,4 @@
+File description:
+
+output.golden: contains results based on training on golden labels
+output.borda: contains results based on training on noisy labels and fusion using Borda count 

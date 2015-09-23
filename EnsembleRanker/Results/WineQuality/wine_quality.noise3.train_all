@@ -1,0 +1,53 @@
+Finished training
+[0.083640671177002135, 0.91635932882299787]
+[0.19963119458759737, 0.80036880541240263]
+[0.23218865251691378, 0.76781134748308622]
+[0.27786190557604473, 0.72213809442395527]
+[0.28936570353906654, 0.71063429646093346]
+[0.28065847641843533, 0.71934152358156467]
+TrainEM Results:
+Correct identifications on train set: 0.929377
+-----------------------------
+
+Finished training
+[ 0.07721711  0.92278289]
+[ 0.19442884  0.80557116]
+[ 0.23685367  0.76314633]
+[ 0.28428547  0.71571453]
+[ 0.2963266  0.7036734]
+[ 0.28761937  0.71238063]
+TrainEMRelEst Results:
+Correct identifications on train set: 0.929817
+-----------------------------
+
+Majority vote Results:
+Correct identifications on train set: 0.905368
+-----------------------------
+
+Getting results for each annotator
+at noisy annotor id: 0
+Annotator 0 results:
+Correctly identified pairs ratio: 0.613016438027
+Annotator correct identification: 0.881664753438
+at noisy annotor id: 1
+Annotator 1 results:
+Correctly identified pairs ratio: 0.577232605205
+Annotator correct identification: 0.80629167379
+at noisy annotor id: 2
+Annotator 2 results:
+Correctly identified pairs ratio: 0.566695958651
+Annotator correct identification: 0.756930366607
+at noisy annotor id: 3
+Annotator 3 results:
+Correctly identified pairs ratio: 0.526159351565
+Annotator correct identification: 0.713259897907
+at noisy annotor id: 4
+Annotator 4 results:
+Correctly identified pairs ratio: 0.550739135267
+Annotator correct identification: 0.695405808075
+at noisy annotor id: 5
+Annotator 5 results:
+Correctly identified pairs ratio: 0.538344953016
+Annotator correct identification: 0.707483574726
+Borda count Results:
+Correctly identified pairs ratio: 0.542661830649

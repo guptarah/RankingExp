@@ -24,12 +24,12 @@ def InitializeW(D):
 
 def InitializeA(N):
    A = numpy.ones((2,N))
-   A[0,:] = 0.4 # probability he flipped
-   A[1,:] = 0.6 # probability he did not flip
+   A[0,:] = 0.1 # probability he flipped
+   A[1,:] = 0.9 # probability he did not flip
    return A
 
 def SigmoidProb(ext_diff_feats,w):
-   term1 = numpy.exp((1/(numpy.dot(w,w.T)+.1))*.1*numpy.dot(ext_diff_feats,w.T))
+   term1 = numpy.exp(numpy.dot(ext_diff_feats,w.T)*(.1/(numpy.dot(w,w.T)+.1)))
    term1[numpy.isinf(term1)] = 1000
    term2 = term1 + numpy.ones(term1.shape)
    return numpy.divide(term1,term2) 
@@ -69,10 +69,29 @@ def ComputeA(k,cur_annt_labels,features): # compute A using logistic regression
    k_disc = k > 0.5 # models decisions
    agreements = numpy.ravel(1*numpy.equal(numpy.matrix(cur_annt_labels).T,k_disc))
    # training model to predict agreements based on features
-   logreg = linear_model.LogisticRegression(penalty='l2',C=1)
-   logreg.fit(features,agreements)
-   A = logreg.predict_proba(features)
-   return A.T
+   logreg = linear_model.LogisticRegression(penalty='l2',C=1,class_weight='auto')
+   if numpy.mean(agreements) != 1:
+      logreg.fit(features,agreements)
+      labels = logreg.predict(features)
+   else:
+      labels = agreements  
+ 
+   # getting the A matrix per cluster
+   nclust = 2
+   A_entries = numpy.zeros((2,nclust))
+   for i in range(0,nclust):
+      cur_agreements = agreements[labels == i]
+      A_entries[1,i] = numpy.mean(cur_agreements) 
+      A_entries[0,i] = 1 - A_entries[1,i] 
+
+   # getting 1 in K encoding from labels
+   lb = preprocessing.LabelBinarizer()
+   lb.fit(labels)
+   labels_encoding = lb.transform(labels).T
+   if nclust == 2: # since then it only gives a vector of 0 and 1
+      labels_encoding = numpy.vstack((numpy.logical_not(labels_encoding),labels_encoding))
+   A = numpy.dot(A_entries,labels_encoding)
+   return A
 
 def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
    """
@@ -118,7 +137,6 @@ def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
       k_term2 = prod_probs_E1+prod_probs_E0 #+ .001*numpy.ones(prod_probs_E1.shape)
       k = numpy.divide(k_term1,k_term2)
 
-
       # M step. 
       # Estimating w 
       diff_feats = ext_diff_feats[:,:-1] # unfortunately ones are appended again in SVRankerSoft 
@@ -130,7 +148,7 @@ def TrainModel(ext_diff_feats,annt_comparison_labels,max_iter=100):
       # Estimating A's
       for i in range(R):
          cur_annt_labels = annt_comparison_labels[i]     
-         A[i] = ComputeAKNN(k,cur_annt_labels,ext_diff_feats) 
+         A[i] = ComputeA(k,cur_annt_labels,ext_diff_feats) 
       if iter_counter > max_iter:
          convergence_flag = 0
 
